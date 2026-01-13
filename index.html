@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <script>
+        // Fake Ladeanimation (FiveM liefert keinen echten Progress)
+        let progress = 0;
+        const bar = document.getElementById("progress-bar");
+
+        const interval = setInterval(() => {
+            progress += Math.random() * 3;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+            }
+            bar.style.width = progress + "%";
+        }, 100);
+    </script>
+
+    <script>
+    // Fade-In sobald der Loadscreen geladen ist
+    window.onload = () => {
+        document.body.classList.add("loaded");
+    };
+</script>
+
+    <script>
+    // Fade-Out nach X Sekunden
+    setTimeout(() => {
+        document.body.classList.add("fade-out");
+    }, 9000); // 9 Sekunden
+</script>
+
+</body>
+</html>

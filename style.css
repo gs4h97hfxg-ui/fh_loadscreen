@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url("background.png") no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+
+    /* Fade-In / Fade-Out Basis */
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+/* Sichtbar nach dem Laden */
+body.loaded {
+    opacity: 1;
+}
+
+/* Unsichtbar beim Ausblenden */
+body.fade-out {
+    opacity: 0;
+}
+
+
+/* Ladebalken Container */
+#progress-container {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Ladebalken */
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    border-radius: 10px;
+    transition: width 0.2s ease;
+}
